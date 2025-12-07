@@ -1,0 +1,62 @@
+/* Nord Theme for Rofi - using your Dark Grey & Faded Royal Blue accent */
+
+* {
+    # Define Nord colors for Rofi variables
+    background:      #2E3440; /* nord0 - Dark Grey */
+    foreground:      #D8DEE9; /* nord4 - Text */
+    active:          #81A1C1; /* nord9 - Faded Royal Blue Accent */
+    urgent:          #BF616A; /* nord11 - Red */
+
+    font:            "Roboto Mono 10"; /* Choose a clean, readable font */
+    border-radius:   0px;
+    spacing:         0;
+    text-color:      @foreground;
+}
+
+window {
+    background-color: @background;
+    border:           0;
+    padding:          0;
+    width:            30%; /* Set width for Sleek Mode */
+}
+
+mainbox {
+    border:           0;
+    padding:          0;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    background-color: @background;
+    border:           0px;
+    padding:          12px;
+}
+
+prompt {
+    background-color: @background;
+    text-color:       @active;
+    padding:          0 10px 0 0;
+}
+
+listview {
+    background-color: @background;
+    padding:          4px 0px 0px;
+    columns:          1;
+    lines:            7;
+    spacing:          5px;
+    cycle:            true;
+    dynamic:          true;
+    layout:           vertical;
+}
+
+element {
+    padding:          5px;
+    background-color: @background;
+    text-color:       @foreground;
+    border-radius:    0px;
+}
+
+element selected {
+    background-color: @active; /* Highlight color is Faded Royal Blue */
+    text-color:       @background; /* Text becomes dark when highlighted */
+}
