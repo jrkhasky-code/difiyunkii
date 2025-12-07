@@ -1,0 +1,53 @@
+Sleek Mode Configuration (config-sleek/qtile/config.py)
+This file is designed for Max Layout and a Minimal, Full-Width Bar.
+
+Python
+
+# LAYOUTS: Max Layout Focus
+layouts = [
+    layout.Max(
+        border_focus='#81A1C1', # nord9 - Faded Royal Blue
+        border_normal='#4C566A', # nord3
+        margin=10,
+    ),
+    # Include MonadTall as an alternate, but Max is the default for sleekness
+    layout.MonadTall(
+        border_focus='#81A1C1',
+        border_normal='#4C566A',
+        margin=10,
+        ratio=0.6 # A bit off-center
+    ),
+]
+
+# BAR: Minimal Full-Width Bar (Segmented, Essential Info)
+screens = [
+    Screen(
+        top=bar.Bar([
+            widget.GroupBox(
+                background="#2E3440", # nord0
+                # Active/Inactive colors follow Nord scheme
+                active="#81A1C1", # nord9
+                inactive="#4C566A", # nord3
+                highlight_method="block",
+                # ... other minimalist GroupBox settings
+            ),
+            widget.CurrentLayout(foreground="#88C0D0"), # nord8
+            widget.WindowName(foreground="#D8DEE9"), # nord4 (Text)
+            widget.Spacer(),
+            # Minimal Status Widgets
+            widget.Clock(format="%I:%M %p | %a, %b %d", foreground="#D8DEE9"),
+            widget.Systray(),
+        ],
+        size=24,
+        background="#2E3440", # nord0
+        opacity=0.9
+        ),
+    ),
+]
+
+# KEYBINDING for Toggle
+keys = [
+    # TWE Toggle: Super + T
+    Key([mod], "t", lazy.spawn("~/dotfiles/toggle_tweak.sh"), desc="Toggle TWE/Sleek Mode"),
+    # ... other standard keybindings like mod + Return to launch terminal
+]
